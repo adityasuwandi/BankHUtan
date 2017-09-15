@@ -115,6 +115,8 @@ public class MainFragment extends Fragment {
                         }
                     }
 
+                    ////
+
                     @Override
                     public void onTabUnselected(TabLayout.Tab tab)
                     {
