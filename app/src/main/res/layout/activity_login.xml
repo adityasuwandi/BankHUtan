@@ -15,7 +15,7 @@
         android:id="@+id/activity_login_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#008080"
+        android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
         android:weightSum="1"
         android:gravity="center">
@@ -130,4 +130,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
+    </android.support.design.widget.CoordinatorLayout>
