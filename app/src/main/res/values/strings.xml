@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BankHutan</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+
+</resources>
+
