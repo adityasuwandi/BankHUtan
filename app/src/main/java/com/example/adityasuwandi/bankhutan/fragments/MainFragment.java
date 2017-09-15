@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.adityasuwandi.bankhutan.OnBackPressListener;
 import com.example.adityasuwandi.bankhutan.R;
 import com.example.adityasuwandi.bankhutan.adapters.MainFragmentAdapter;
 
@@ -25,9 +26,11 @@ public class MainFragment extends Fragment {
     private int image[] = new int[7];
     private int image_pressed[] = new int[7];
     private boolean first_time = true;
+
     public MainFragment() {
         // Required empty public constructor
     }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -45,11 +48,11 @@ public class MainFragment extends Fragment {
         appCompatActivity = (AppCompatActivity) getView().getContext();
         toolbar = getView().findViewById(R.id.tool_bar_new);
         tabs = getView().findViewById(R.id.tabs_new);
-        pager =  getView().findViewById(R.id.pager_new);
+        pager = getView().findViewById(R.id.pager_new);
         appCompatActivity.setSupportActionBar(toolbar);
 
         // Note that we are passing childFragmentManager, not FragmentManager
-        adapter = new MainFragmentAdapter(getResources(),getChildFragmentManager());
+        adapter = new MainFragmentAdapter(getResources(), getChildFragmentManager());
 
         pager.setAdapter(adapter);
 
@@ -67,32 +70,29 @@ public class MainFragment extends Fragment {
         image_pressed[3] = R.drawable.library_button_pressed;
         image_pressed[4] = R.drawable.newbook_button_pressed;
 
-        for(int i=0; i<tabs.getTabCount(); i++)
+        for (int i = 0; i < tabs.getTabCount(); i++)
             tabs.getTabAt(i).setIcon(image[i]);
 
-        if(first_time == true)
-        {
+        if (first_time == true) {
             tabs.getTabAt(0).setIcon(image_pressed[0]);
             appCompatActivity.getSupportActionBar().setTitle("Home");
             first_time = false;
         }
 
         tabs.setOnTabSelectedListener(
-                new TabLayout.ViewPagerOnTabSelectedListener(pager){
+                new TabLayout.ViewPagerOnTabSelectedListener(pager) {
 
                     @Override
-                    public void onTabSelected(TabLayout.Tab tab)
-                    {
+                    public void onTabSelected(TabLayout.Tab tab) {
                         super.onTabSelected(tab);
                         int tabnumberselected = tab.getPosition();
-                        switch (tabnumberselected)
-                        {
-                            case 0 : {
+                        switch (tabnumberselected) {
+                            case 0: {
                                 tabs.getTabAt(0).setIcon(image_pressed[0]);
                                 appCompatActivity.getSupportActionBar().setTitle("Home");
                                 break;
                             }
-                            case 1 : {
+                            case 1: {
                                 tabs.getTabAt(1).setIcon(image_pressed[1]);
                                 appCompatActivity.getSupportActionBar().setTitle("Article");
                                 break;
@@ -118,18 +118,16 @@ public class MainFragment extends Fragment {
                     //Something has changed dude!!
 
                     @Override
-                    public void onTabUnselected(TabLayout.Tab tab)
-                    {
+                    public void onTabUnselected(TabLayout.Tab tab) {
                         super.onTabUnselected(tab);
                         int tabnumberunselected = tab.getPosition();
-                        switch (tabnumberunselected)
-                        {
-                            case 0 : {
-                                if(first_time == false)
+                        switch (tabnumberunselected) {
+                            case 0: {
+                                if (first_time == false)
                                     tabs.getTabAt(0).setIcon(image[0]);
                                 break;
                             }
-                            case 1 :
+                            case 1:
                                 tabs.getTabAt(1).setIcon(image[1]);
                                 break;
                             case 2:
@@ -148,4 +146,18 @@ public class MainFragment extends Fragment {
                 }
         );
 
+    public boolean onBackPressed() {
+        // currently visible tab Fragment
+        OnBackPressListener currentFragment = (OnBackPressListener) adapter.getRegisteredFragment(pager.getCurrentItem());
+
+        if (currentFragment != null) {
+            // lets see if the currentFragment or any of its childFragment can handle onBackPressed
+            return currentFragment.onBackPressed();
+        }
+
+        // this Fragment couldn't handle the onBackPressed call
+        return false;
+    }
+
+}
 }
