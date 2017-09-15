@@ -73,7 +73,7 @@ public class MainFragment extends Fragment {
         if(first_time == true)
         {
             tabs.getTabAt(0).setIcon(image_pressed[0]);
-            appCompatActivity.getSupportActionBar().setTitle("Profile");
+            appCompatActivity.getSupportActionBar().setTitle("Home");
             first_time = false;
         }
 
@@ -89,27 +89,27 @@ public class MainFragment extends Fragment {
                         {
                             case 0 : {
                                 tabs.getTabAt(0).setIcon(image_pressed[0]);
-                                appCompatActivity.getSupportActionBar().setTitle("Profile");
+                                appCompatActivity.getSupportActionBar().setTitle("Home");
                                 break;
                             }
                             case 1 : {
                                 tabs.getTabAt(1).setIcon(image_pressed[1]);
-                                appCompatActivity.getSupportActionBar().setTitle("Borrow");
+                                appCompatActivity.getSupportActionBar().setTitle("Article");
                                 break;
                             }
                             case 2: {
                                 tabs.getTabAt(2).setIcon(image_pressed[2]);
-                                appCompatActivity.getSupportActionBar().setTitle("Lend");
+                                appCompatActivity.getSupportActionBar().setTitle("Catalog");
                                 break;
                             }
                             case 3: {
                                 tabs.getTabAt(3).setIcon(image_pressed[3]);
-                                appCompatActivity.getSupportActionBar().setTitle("Library");
+                                appCompatActivity.getSupportActionBar().setTitle("My Forest");
                                 break;
                             }
                             case 4: {
                                 tabs.getTabAt(4).setIcon(image_pressed[4]);
-                                appCompatActivity.getSupportActionBar().setTitle("New Book");
+                                appCompatActivity.getSupportActionBar().setTitle("Profile");
                                 break;
                             }
                         }
