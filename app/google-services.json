@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "292797608486",
+    "firebase_url": "https://bankhutan98.firebaseio.com",
+    "project_id": "bankhutan98",
+    "storage_bucket": "bankhutan98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292797608486:android:6c77a561ca1ded9a",
+        "android_client_info": {
+          "package_name": "com.example.adityasuwandi.bankhutan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292797608486-62vm6ujdqkq8p7kf1519cun300ac5pmh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adityasuwandi.bankhutan",
+            "certificate_hash": "a7475e1309ee9fd71ca1f7fc5411ad4dcdf71205"
+          }
+        },
+        {
+          "client_id": "292797608486-sdj54go4oemqofd07monpap7uevhftc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8VENXVhcz4Zv_zwfnf2BsW9wwFwAqtzE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292797608486-sdj54go4oemqofd07monpap7uevhftc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
