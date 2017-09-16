@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.adityasuwandi.bankhutan.OnBackPressListener;
 import com.example.adityasuwandi.bankhutan.R;
 import com.example.adityasuwandi.bankhutan.adapters.MainFragmentAdapter;
 import com.example.adityasuwandi.bankhutan.adapters.MyForestFragmentAdapter;
@@ -86,4 +87,17 @@ public class MyForestFragment extends RootFragment {
                 });
 
 }
+
+    public boolean onBackPressed() {
+        // currently visible tab Fragment
+        OnBackPressListener currentFragment = (OnBackPressListener) adapter.getRegisteredFragment(viewPager.getCurrentItem());
+
+        if (currentFragment != null) {
+            // lets see if the currentFragment or any of its childFragment can handle onBackPressed
+            return currentFragment.onBackPressed();
+        }
+
+        // this Fragment couldn't handle the onBackPressed call
+        return false;
+    }
 }

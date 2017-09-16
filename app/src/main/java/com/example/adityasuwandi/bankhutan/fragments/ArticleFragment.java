@@ -28,6 +28,7 @@ public class ArticleFragment extends RootFragment {
     private ArticleFragmentAdapter articleFragmentAdapter;
     private Random random;
     private RecyclerView recyclerView;
+    final private int INF = 9999;
 
     private String article_title[]={"Perpustakaan Arsip Daerah","Perpustakaan Kota",
             "Perpustakaan Provinsi","Perpustakaan Nasional","Perpustakaan Universitas"};
@@ -71,7 +72,7 @@ public class ArticleFragment extends RootFragment {
         articleFragmentAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-                if (articleDatas.size() <= 20) { //limitation
+                if (articleDatas.size() <= INF) { //limitation
                     articleDatas.add(null);
                     articleFragmentAdapter.notifyItemInserted(articleDatas.size() - 1);
                     new Handler().postDelayed(new Runnable() {
