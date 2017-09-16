@@ -14,11 +14,13 @@ import com.example.adityasuwandi.bankhutan.R;
  * A simple {@link Fragment} subclass.
  */
 public class CatalogFragment extends Fragment {
-
     public static Fragment newInstance() {
-        Fragment frag = new ArticleFragment();
+        Fragment frag = new CatalogFragment();
         return frag;
     }
+
+
+
 //
 
     public CatalogFragment() {

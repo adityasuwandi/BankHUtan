@@ -75,7 +75,7 @@ public class CobaActivity extends AppCompatActivity {
                 frag = ArticleFragment.newInstance();
                 break;
             case R.id.navigation_katalog:
-                frag = CatalogFragment.newInstance();
+                frag = new CatalogFragment();
                 break;
             case R.id.navigation_myforest:
                 frag = MyForestFragment.newInstance();
