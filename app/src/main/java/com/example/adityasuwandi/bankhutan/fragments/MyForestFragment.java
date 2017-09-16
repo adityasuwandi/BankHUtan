@@ -17,7 +17,7 @@ import com.example.adityasuwandi.bankhutan.adapters.MyForestFragmentAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyForestFragment extends Fragment {
+public class MyForestFragment extends RootFragment {
 
     private TabLayout tabs;
     private MyForestFragmentAdapter adapter;
@@ -42,8 +42,8 @@ public class MyForestFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        tabs = getView().findViewById(R.id.tabs_new);
-        viewPager = getView().findViewById(R.id.pager_new);
+        tabs = getView().findViewById(R.id.tabs_myForest);
+        viewPager = getView().findViewById(R.id.pager_myForest);
         appCompatActivity = (AppCompatActivity) getView().getContext();
 
 

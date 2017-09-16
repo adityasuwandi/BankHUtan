@@ -19,8 +19,8 @@ import com.example.adityasuwandi.bankhutan.adapters.MainFragmentAdapter;
 public class MainFragment extends Fragment {
 
     protected ViewPager pager;
-    private AppCompatActivity appCompatActivity;
-    private Toolbar toolbar;
+    //private AppCompatActivity appCompatActivity;
+    //private Toolbar toolbar;
     private TabLayout tabs;
     private MainFragmentAdapter adapter;
     private int image[] = new int[7];
@@ -45,11 +45,11 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        appCompatActivity = (AppCompatActivity) getView().getContext();
-        toolbar = getView().findViewById(R.id.tool_bar_new);
-        tabs = getView().findViewById(R.id.tabs_new);
-        pager = getView().findViewById(R.id.pager_new);
-        appCompatActivity.setSupportActionBar(toolbar);
+//        appCompatActivity = (AppCompatActivity) getView().getContext();
+//        toolbar = getView().findViewById(R.id.toolbar);
+        tabs = getView().findViewById(R.id.tabs_myForest);
+        pager = getView().findViewById(R.id.pager_main);
+//        appCompatActivity.setSupportActionBar(toolbar);
 
         // Note that we are passing childFragmentManager, not FragmentManager
         adapter = new MainFragmentAdapter(getResources(), getChildFragmentManager());
@@ -58,24 +58,24 @@ public class MainFragment extends Fragment {
 
         tabs.setupWithViewPager(pager);
 
-        image[0] = R.drawable.profile_button;
-        image[1] = R.drawable.borrow_button;
-        image[2] = R.drawable.lend_button;
-        image[3] = R.drawable.library_button;
-        image[4] = R.drawable.newbook_button;
-
-        image_pressed[0] = R.drawable.profile_button_pressed;
-        image_pressed[1] = R.drawable.borrow_button_pressed;
-        image_pressed[2] = R.drawable.lend_button_pressed;
-        image_pressed[3] = R.drawable.library_button_pressed;
-        image_pressed[4] = R.drawable.newbook_button_pressed;
+//        image[0] = R.drawable.profile_button;
+//        image[1] = R.drawable.borrow_button;
+//        image[2] = R.drawable.lend_button;
+//        image[3] = R.drawable.library_button;
+//        image[4] = R.drawable.newbook_button;
+//
+//        image_pressed[0] = R.drawable.profile_button_pressed;
+//        image_pressed[1] = R.drawable.borrow_button_pressed;
+//        image_pressed[2] = R.drawable.lend_button_pressed;
+//        image_pressed[3] = R.drawable.library_button_pressed;
+//        image_pressed[4] = R.drawable.newbook_button_pressed;
 
         for (int i = 0; i < tabs.getTabCount(); i++)
             tabs.getTabAt(i).setIcon(image[i]);
 
         if (first_time == true) {
             tabs.getTabAt(0).setIcon(image_pressed[0]);
-            appCompatActivity.getSupportActionBar().setTitle("Home");
+            //appCompatActivity.getSupportActionBar().setTitle("Home");
             first_time = false;
         }
 
@@ -89,27 +89,27 @@ public class MainFragment extends Fragment {
                         switch (tabnumberselected) {
                             case 0: {
                                 tabs.getTabAt(0).setIcon(image_pressed[0]);
-                                appCompatActivity.getSupportActionBar().setTitle("Home");
+                                //appCompatActivity.getSupportActionBar().setTitle("Home");
                                 break;
                             }
                             case 1: {
                                 tabs.getTabAt(1).setIcon(image_pressed[1]);
-                                appCompatActivity.getSupportActionBar().setTitle("Article");
+                                //appCompatActivity.getSupportActionBar().setTitle("Article");
                                 break;
                             }
                             case 2: {
                                 tabs.getTabAt(2).setIcon(image_pressed[2]);
-                                appCompatActivity.getSupportActionBar().setTitle("Catalog");
+                                //appCompatActivity.getSupportActionBar().setTitle("Catalog");
                                 break;
                             }
                             case 3: {
                                 tabs.getTabAt(3).setIcon(image_pressed[3]);
-                                appCompatActivity.getSupportActionBar().setTitle("My Forest");
+                                //appCompatActivity.getSupportActionBar().setTitle("My Forest");
                                 break;
                             }
                             case 4: {
                                 tabs.getTabAt(4).setIcon(image_pressed[4]);
-                                appCompatActivity.getSupportActionBar().setTitle("Profile");
+                                //appCompatActivity.getSupportActionBar().setTitle("Profile");
                                 break;
                             }
                         }

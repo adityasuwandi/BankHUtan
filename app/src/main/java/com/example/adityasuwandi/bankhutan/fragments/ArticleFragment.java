@@ -55,7 +55,7 @@ public class ArticleFragment extends RootFragment {
         articleDatas = new ArrayList<>();
         random = new Random();
 
-        recyclerView = getView().findViewById(R.id.recycler_view);
+        recyclerView = getView().findViewById(R.id.recycler_view_article);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         articleFragmentAdapter = new ArticleFragmentAdapter(recyclerView,articleDatas,getActivity());
         recyclerView.setAdapter(articleFragmentAdapter);

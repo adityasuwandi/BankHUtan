@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.adityasuwandi.bankhutan.OnLoadMoreListener;
+import com.example.adityasuwandi.bankhutan.R;
 import com.example.adityasuwandi.bankhutan.serialized.ArticleData;
 
 import java.util.List;
@@ -112,8 +113,8 @@ public class ArticleFragmentAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public UserViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.txt_item_article);
-            article = (TextView) view.findViewById(R.id.txt_item_lokasi);
+            title = (TextView) view.findViewById(R.id.txt_item_title);
+            article = (TextView) view.findViewById(R.id.txt_item_article);
         }
     }
 

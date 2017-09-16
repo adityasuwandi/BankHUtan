@@ -28,7 +28,7 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
     };
 
 
-    SparseArray<Fragment> registeredFragments new SparseArray<>();
+    SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
     public MainFragmentAdapter(Resources resources, FragmentManager fragmentManager){
         super(fragmentManager);
