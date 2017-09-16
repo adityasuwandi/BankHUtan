@@ -15,6 +15,11 @@ import com.example.adityasuwandi.bankhutan.R;
 public class InProgressFragment extends Fragment {
 
 
+    public static Fragment newInstance() {
+        Fragment frag = new InProgressFragment();
+        return frag;
+    }
+
     public InProgressFragment() {
         // Required empty public constructor
     }

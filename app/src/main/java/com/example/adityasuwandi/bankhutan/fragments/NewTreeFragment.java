@@ -14,6 +14,10 @@ import com.example.adityasuwandi.bankhutan.R;
  */
 public class NewTreeFragment extends Fragment {
 
+    public static Fragment newInstance() {
+        Fragment frag = new NewTreeFragment();
+        return frag;
+    }
 
     public NewTreeFragment() {
         // Required empty public constructor
