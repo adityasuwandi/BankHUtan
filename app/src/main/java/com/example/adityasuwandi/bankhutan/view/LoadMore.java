@@ -9,6 +9,8 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.adityasuwandi.bankhutan.R;
+
 /**
  * Created by root on 16/09/17.
  */
@@ -16,7 +18,7 @@ import android.widget.ListView;
 public class LoadMore extends ListView implements AbsListView.OnScrollListener {
 
 
-    private static final String TAG = LoadMoreListView.class
+    private static final String TAG = LoadMore.class
             .getSimpleName();
 
     private OnScrollListener mOnScrollListener;
@@ -30,12 +32,12 @@ public class LoadMore extends ListView implements AbsListView.OnScrollListener {
     private boolean mIsLoadingMore = false;
     private int mCurrentScrollState;
 
-    public LoadMoreListView(Context context, AttributeSet attrs) {
+    public LoadMore(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public LoadMoreListView(Context context, AttributeSet attrs, int defStyle) {
+    public LoadMore(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
@@ -43,9 +45,9 @@ public class LoadMore extends ListView implements AbsListView.OnScrollListener {
     @Override
     public void setAdapter(ListAdapter adapter) {
 
-        mFooterView = mInflater.inflate(R.layout.loadmore_view,
+        mFooterView = mInflater.inflate(R.layout.loadmore,
                 this, false);
-        mLoadMoreStatusView = mFooterView.findViewById(R.id.load_more_progress_bar);
+        mLoadMoreStatusView = mFooterView.findViewById(R.id.loadMoreBar);
         addFooterView(mFooterView);
         setLoading(false);
 
@@ -72,7 +74,7 @@ public class LoadMore extends ListView implements AbsListView.OnScrollListener {
         removeFooterView(mFooterView);
 
         mFooterView = v;
-        mLoadMoreStatusView = mFooterView.findViewById(R.id.load_more_progress_bar);
+        mLoadMoreStatusView = mFooterView.findViewById(R.id.loadMoreBar);
         addFooterView(mFooterView);
     }
 

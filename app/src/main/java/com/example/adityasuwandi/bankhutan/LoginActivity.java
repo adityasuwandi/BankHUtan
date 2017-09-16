@@ -1,6 +1,8 @@
 package com.example.adityasuwandi.bankhutan;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,13 +10,74 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class LoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth firebaseAuth;
+    private Button loginButton;
+    private EditText email;
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        loginButton = (Button) findViewById(R.id.btnLogin);
+        email = (EditText) findViewById(R.id.txtEmail);
+        password = (EditText) findViewById(R.id.txtPass);
+
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String enteredEmail = email.getText().toString().trim();
+                String enteredPassword = password.getText().toString().trim();
+
+                if(enteredEmail.equals("") || enteredPassword.equals("")){
+                    Toast.makeText(LoginActivity.this, "Email or Password must be filled", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(enteredPassword.length()<4){
+                    Toast.makeText(LoginActivity.this, "Password length must be more than or equal to 4", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                firebaseAuth.createUserWithEmailAndPassword(enteredEmail,enteredPassword).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>(){
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task){
+
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Failed to Register",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+
+
+
+            }
+        });
+
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 

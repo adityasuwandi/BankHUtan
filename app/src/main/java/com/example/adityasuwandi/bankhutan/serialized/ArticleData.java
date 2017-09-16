@@ -10,9 +10,9 @@ public class ArticleData implements Serializable {
 
     String title,article;
 
-    public void setTitle(String title){ this.title = title}
+    public void setTitle(String title){ this.title = title;}
     public String getTitle() { return this.title;}
-    public void  setArticle(String article) { this.article = article}
-    public String getArticle() { return this.article}
+    public void  setArticle(String article) { this.article = article;}
+    public String getArticle() { return this.article;}
 
 }
