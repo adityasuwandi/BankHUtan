@@ -55,11 +55,11 @@ public class MyForestFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_my_forest, container, false);
     }
 
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//
-////
-//    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+    }
 
 }
