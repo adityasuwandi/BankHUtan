@@ -24,7 +24,7 @@ public class CatalogFragment extends Fragment {
     public CatalogFragment() {
         // Required empty public constructor
     }
-
+//
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
