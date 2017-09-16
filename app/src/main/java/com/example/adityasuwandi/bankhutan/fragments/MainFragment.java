@@ -58,17 +58,17 @@ public class MainFragment extends Fragment {
 
         tabs.setupWithViewPager(pager);
 
-//        image[0] = R.drawable.profile_button;
-//        image[1] = R.drawable.borrow_button;
-//        image[2] = R.drawable.lend_button;
-//        image[3] = R.drawable.library_button;
-//        image[4] = R.drawable.newbook_button;
-//
-//        image_pressed[0] = R.drawable.profile_button_pressed;
-//        image_pressed[1] = R.drawable.borrow_button_pressed;
-//        image_pressed[2] = R.drawable.lend_button_pressed;
-//        image_pressed[3] = R.drawable.library_button_pressed;
-//        image_pressed[4] = R.drawable.newbook_button_pressed;
+        image[0] = R.drawable.home;
+        image[1] = R.drawable.art;
+        image[2] = R.drawable.cat;
+        image[3] = R.drawable.myf;
+        image[4] = R.drawable.prof;
+
+        image_pressed[0] = R.drawable.homep;
+        image_pressed[1] = R.drawable.artp;
+        image_pressed[2] = R.drawable.catp;
+        image_pressed[3] = R.drawable.myfp;
+        image_pressed[4] = R.drawable.profp;
 
         for (int i = 0; i < tabs.getTabCount(); i++)
             tabs.getTabAt(i).setIcon(image[i]);

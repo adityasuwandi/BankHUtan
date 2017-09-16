@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String enteredEmail = email.getText().toString().trim();
-                String enteredPassword = password.getText().toString().trim();
+                final String enteredPassword = password.getText().toString().trim();
 
                 if(enteredEmail.equals("") || enteredPassword.equals("")){
                     Toast.makeText(LoginActivity.this, "Email or Password must be filled", Toast.LENGTH_LONG).show();
@@ -57,17 +57,20 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                firebaseAuth.createUserWithEmailAndPassword(enteredEmail,enteredPassword).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>(){
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task){
+                firebaseAuth.signInWithEmailAndPassword(enteredEmail, enteredPassword)
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(),"Failed to Register",Toast.LENGTH_LONG).show();
-                        }
+                                if (!task.isSuccessful()) {
+                                    // there was an error
+                                        Toast.makeText(LoginActivity.this, "autentikasi gagal", Toast.LENGTH_LONG).show();
+
+                                } else {
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
 
                     }
                 });
