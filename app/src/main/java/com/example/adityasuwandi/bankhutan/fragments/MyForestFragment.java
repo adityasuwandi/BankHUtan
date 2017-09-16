@@ -18,18 +18,18 @@ import com.example.adityasuwandi.bankhutan.adapters.MyForestFragmentAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyForestFragment extends RootFragment {
+public class MyForestFragment extends Fragment {
 
     public static Fragment newInstance() {
         Fragment frag = new MyForestFragment();
         return frag;
     }
 
-    private TabLayout tabs;
-    private MyForestFragmentAdapter adapter;
-    protected ViewPager viewPager;
-    private boolean first_time = true;
-    private AppCompatActivity appCompatActivity;
+//    private TabLayout tabs;
+//    private MyForestFragmentAdapter adapter;
+//    protected ViewPager viewPager;
+//    private boolean first_time = true;
+//    private AppCompatActivity appCompatActivity;
 
     public MyForestFragment() {
         // Required empty public constructor
@@ -43,66 +43,66 @@ public class MyForestFragment extends RootFragment {
         return inflater.inflate(R.layout.fragment_my_forest, container, false);
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState){
-        super.onActivityCreated(savedInstanceState);
-
-
-        tabs = getView().findViewById(R.id.tabs_myForest);
-        viewPager = getView().findViewById(R.id.pager_myForest);
-        appCompatActivity = (AppCompatActivity) getView().getContext();
-
-
-        adapter = new MyForestFragmentAdapter(getResources(),getChildFragmentManager());
-        viewPager.setAdapter(adapter);
-        tabs.setupWithViewPager(viewPager);
-
-
-        if(first_time == true){
-            appCompatActivity.getSupportActionBar().setTitle("New Tree");
-            first_time = false;
-        }
-
-        tabs.setOnTabSelectedListener(
-                new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
-
-                    @Override
-                    public void onTabSelected(TabLayout.Tab tab) {
-                        super.onTabSelected(tab);
-                        int tabnumberselected = tab.getPosition();
-                        switch (tabnumberselected) {
-                            case 0: {
-                                appCompatActivity.getSupportActionBar().setTitle("New Tree");
-                                break;
-                            }
-                            case 1: {
-                                appCompatActivity.getSupportActionBar().setTitle("In Progress");
-                                break;
-                            }
-                            case 2: {
-                                appCompatActivity.getSupportActionBar().setTitle("Harvest");
-                                break;
-                            }
-                        }
-                    }
-
-                    //Something has changed dude!!
-
-
-                });
-
-}
-
-    public boolean onBackPressed() {
-        // currently visible tab Fragment
-        OnBackPressListener currentFragment = (OnBackPressListener) adapter.getRegisteredFragment(viewPager.getCurrentItem());
-
-        if (currentFragment != null) {
-            // lets see if the currentFragment or any of its childFragment can handle onBackPressed
-            return currentFragment.onBackPressed();
-        }
-
-        // this Fragment couldn't handle the onBackPressed call
-        return false;
-    }
+//    @Override
+//    public void onActivityCreated(Bundle savedInstanceState){
+//        super.onActivityCreated(savedInstanceState);
+//
+//
+//        tabs = getView().findViewById(R.id.tabs_myForest);
+//        viewPager = getView().findViewById(R.id.pager_myForest);
+//        appCompatActivity = (AppCompatActivity) getView().getContext();
+//
+//
+//        adapter = new MyForestFragmentAdapter(getResources(),getChildFragmentManager());
+//        viewPager.setAdapter(adapter);
+//        tabs.setupWithViewPager(viewPager);
+//
+//
+//        if(first_time == true){
+//            appCompatActivity.getSupportActionBar().setTitle("New Tree");
+//            first_time = false;
+//        }
+//
+//        tabs.setOnTabSelectedListener(
+//                new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
+//
+//                    @Override
+//                    public void onTabSelected(TabLayout.Tab tab) {
+//                        super.onTabSelected(tab);
+//                        int tabnumberselected = tab.getPosition();
+//                        switch (tabnumberselected) {
+//                            case 0: {
+//                                appCompatActivity.getSupportActionBar().setTitle("New Tree");
+//                                break;
+//                            }
+//                            case 1: {
+//                                appCompatActivity.getSupportActionBar().setTitle("In Progress");
+//                                break;
+//                            }
+//                            case 2: {
+//                                appCompatActivity.getSupportActionBar().setTitle("Harvest");
+//                                break;
+//                            }
+//                        }
+//                    }
+//
+//                    //Something has changed dude!!
+//
+//
+//                });
+//
+//}
+//
+//    public boolean onBackPressed() {
+//        // currently visible tab Fragment
+//        OnBackPressListener currentFragment = (OnBackPressListener) adapter.getRegisteredFragment(viewPager.getCurrentItem());
+//
+//        if (currentFragment != null) {
+//            // lets see if the currentFragment or any of its childFragment can handle onBackPressed
+//            return currentFragment.onBackPressed();
+//        }
+//
+//        // this Fragment couldn't handle the onBackPressed call
+//        return false;
+//    }
 }
