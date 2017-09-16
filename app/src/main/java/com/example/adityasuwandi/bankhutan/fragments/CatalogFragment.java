@@ -15,6 +15,11 @@ import com.example.adityasuwandi.bankhutan.R;
  */
 public class CatalogFragment extends Fragment {
 
+    public static Fragment newInstance() {
+        Fragment frag = new ArticleFragment();
+        return frag;
+    }
+//
 
     public CatalogFragment() {
         // Required empty public constructor
