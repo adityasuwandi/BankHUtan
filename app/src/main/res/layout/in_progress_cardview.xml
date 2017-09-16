@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/article_list">
+        android:id="@+id/in_progress_list">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/img_article_list"
+            android:id="@+id/img_in_progress_list"
             app:srcCompat="@drawable/logo"
             />
         <LinearLayout
@@ -25,16 +25,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_item_title"
+                android:id="@+id/txt_item_tree"
                 android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Article Title"/>
+                android:text="Tree"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_item_article"
+                android:id="@+id/txt_item_description"
                 android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
