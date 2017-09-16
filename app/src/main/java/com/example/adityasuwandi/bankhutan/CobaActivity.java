@@ -64,7 +64,7 @@ public class CobaActivity extends AppCompatActivity {
         }
     }
 
-    private void selectFragment(MenuItem item) {
+    public void selectFragment(MenuItem item) {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
