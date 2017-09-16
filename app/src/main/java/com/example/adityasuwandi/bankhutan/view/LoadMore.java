@@ -45,9 +45,9 @@ public class LoadMore extends ListView implements AbsListView.OnScrollListener {
     @Override
     public void setAdapter(ListAdapter adapter) {
 
-        mFooterView = mInflater.inflate(R.layout.loadmore,
+        mFooterView = mInflater.inflate(R.layout.loadmoreview,
                 this, false);
-        mLoadMoreStatusView = mFooterView.findViewById(R.id.loadMoreBar);
+        mLoadMoreStatusView = mFooterView.findViewById(R.id.load_more_progress_bar);
         addFooterView(mFooterView);
         setLoading(false);
 
@@ -74,7 +74,7 @@ public class LoadMore extends ListView implements AbsListView.OnScrollListener {
         removeFooterView(mFooterView);
 
         mFooterView = v;
-        mLoadMoreStatusView = mFooterView.findViewById(R.id.loadMoreBar);
+        mLoadMoreStatusView = mFooterView.findViewById(R.id.load_more_progress_bar);
         addFooterView(mFooterView);
     }
 
