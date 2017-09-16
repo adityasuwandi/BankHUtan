@@ -143,8 +143,8 @@ public class MainFragment extends Fragment {
 
                     }
 
-                }
-        );
+                });
+    }
 
     public boolean onBackPressed() {
         // currently visible tab Fragment
@@ -158,6 +158,7 @@ public class MainFragment extends Fragment {
         // this Fragment couldn't handle the onBackPressed call
         return false;
     }
+}
 
-}
-}
+
+
