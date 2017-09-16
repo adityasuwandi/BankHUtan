@@ -13,9 +13,14 @@ import com.example.adityasuwandi.bankhutan.R;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+    public static Fragment newInstance() {
+        Fragment frag = new HomeFragment();
+        return frag;
+    }
 
 
     public HomeFragment() {
+
         // Required empty public constructor
     }
 

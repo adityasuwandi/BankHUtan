@@ -20,6 +20,11 @@ import com.example.adityasuwandi.bankhutan.adapters.MyForestFragmentAdapter;
  */
 public class MyForestFragment extends RootFragment {
 
+    public static Fragment newInstance() {
+        Fragment frag = new MyForestFragment();
+        return frag;
+    }
+
     private TabLayout tabs;
     private MyForestFragmentAdapter adapter;
     protected ViewPager viewPager;

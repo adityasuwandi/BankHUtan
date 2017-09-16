@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "autentikasi gagal", Toast.LENGTH_LONG).show();
 
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, CobaActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -94,14 +94,14 @@ public class LoginActivity extends AppCompatActivity {
 //        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.navigation, menu);
+//        return true;
+//    }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -114,5 +114,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

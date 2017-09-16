@@ -24,6 +24,11 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class ArticleFragment extends RootFragment {
+
+    public static Fragment newInstance() {
+        Fragment frag = new ArticleFragment();
+        return frag;
+    }
     private List<ArticleData> articleDatas;
     private ArticleFragmentAdapter articleFragmentAdapter;
     private Random random;

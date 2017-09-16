@@ -15,6 +15,11 @@ import com.example.adityasuwandi.bankhutan.R;
 public class ProfileFragment extends Fragment {
 
 
+    public static Fragment newInstance() {
+        Fragment frag = new ProfileFragment();
+        return frag;
+    }
+
     public ProfileFragment() {
         // Required empty public constructor
     }
