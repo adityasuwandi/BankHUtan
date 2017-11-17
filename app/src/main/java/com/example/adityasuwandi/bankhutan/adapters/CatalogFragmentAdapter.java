@@ -3,6 +3,9 @@ package com.example.adityasuwandi.bankhutan.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,10 +17,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
 import com.example.adityasuwandi.bankhutan.DataKatalog;
 import com.example.adityasuwandi.bankhutan.OnLoadMoreListener;
 import com.example.adityasuwandi.bankhutan.R;
 import com.example.adityasuwandi.bankhutan.fragments.CatalogFragment;
+import com.example.adityasuwandi.bankhutan.fragments.CatalogTree;
 import com.example.adityasuwandi.bankhutan.serialized.ArticleData;
 
 import org.w3c.dom.Text;

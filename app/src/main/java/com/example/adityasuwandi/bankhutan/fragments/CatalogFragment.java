@@ -26,7 +26,9 @@ public class CatalogFragment extends android.app.Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         return view;
+
         }
+
 
 
     }

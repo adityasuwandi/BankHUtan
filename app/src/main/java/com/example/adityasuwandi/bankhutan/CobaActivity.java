@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.example.adityasuwandi.bankhutan.fragments.ArticleFragment;
 import com.example.adityasuwandi.bankhutan.fragments.CatalogFragment;
+import com.example.adityasuwandi.bankhutan.fragments.CatalogTree;
 import com.example.adityasuwandi.bankhutan.fragments.HomeFragment;
 import com.example.adityasuwandi.bankhutan.fragments.MyForestFragment;
 import com.example.adityasuwandi.bankhutan.fragments.ProfileFragment;
@@ -69,7 +70,7 @@ public class CobaActivity extends AppCompatActivity {
         // init corresponding fragment
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                frag = new HomeFragment();
+                frag = new CatalogTree();
                 break;
             case R.id.navigation_artikel:
                 frag = new ArticleFragment();
