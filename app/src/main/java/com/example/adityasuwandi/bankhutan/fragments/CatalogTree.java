@@ -1,6 +1,8 @@
 package com.example.adityasuwandi.bankhutan.fragments;
 
 
+import android.app.DownloadManager;
+import android.net.http.RequestQueue;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Response;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +49,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,7 +60,7 @@ public class CatalogTree extends android.app.Fragment {
     private TextView mTreeName ;
     private TextView mTreeDesc ;
     private Button investButton;
-    private String access_token="KptSGpJYZ8f6ErW68BmDhLSaQjn3",url="https://blinke-stage.apigee.net/imx/sms",message = "Congratulation! You just made an investation on Sengon Tree"
+    private String access_token="9ORTlBhqtnufgaA6IVs11xQCQ9t4",url="https://blinke-stage.apigee.net/imx/sms",message = "Congratulation! You just made an investation on Sengon Tree"
             ,msisdn="6285877798708";
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mConditionRef = mRootRef.child("IDPohon/0001/Deskripsi");
@@ -93,91 +103,118 @@ public class CatalogTree extends android.app.Fragment {
             @Override
             public void onClick(View view) {
 
-                AsyncData asyncData = new AsyncData();
-                asyncData.execute(url,access_token,message,msisdn);
+                com.android.volley.RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new com.android.volley.Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                            Toast.makeText(getActivity(),"IT WORKS I DUNNO WHY", Toast.LENGTH_LONG);
+                        }
+                    }, new com.android.volley.Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getActivity(),"HOLLY FUCKING SHIT", Toast.LENGTH_LONG);
+                        }
+                    }) {
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            final Map<String, String> headers = new HashMap<>();
+                            headers.put("Content-Type","application/json");
+                            headers.put("Authorization", "Bearer "+access_token);
+                            return headers;
+                        }
+                    };
+                    jsonObject.put("message", message);
+                    jsonObject.put("msisdn", msisdn);
+                    requestQueue.add(jsonObjectRequest);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    public class AsyncData extends AsyncTask<String, Void, String>{
-
-        @Override
-        protected String doInBackground(String... params){
-            HttpParams httpParams = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(httpParams,5000);
-            HttpConnectionParams.setSoTimeout(httpParams,5000);
-
-            HttpClient httpClient = new DefaultHttpClient(httpParams);
-            HttpPost httpPost = new HttpPost(params[0]);
-            String jsonresult = "";
-
-            try{
-
-                List<NameValuePair> nameValuePairs = new ArrayList<>(2);
-                //List<NameValuePair> headers = new ArrayList<>(2);
-                nameValuePairs.add(new BasicNameValuePair("message",params[2]));
-                nameValuePairs.add(new BasicNameValuePair("msisdn",params[3]));
-                //headers.add(new BasicNameValuePair("Content-Type","application/json"));
-                //headers.add(new BasicNameValuePair("Authorization","Bearer "+params[1]));
-                httpPost.addHeader(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
-                httpPost.addHeader(new BasicHeader("Authorization","Bearer "+params[1]));
-                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
-
-                HttpResponse httpResponse = httpClient.execute(httpPost);
-                jsonresult = inputStreamToString(httpResponse.getEntity().getContent()).toString();
-
-            }
-            catch (ClientProtocolException e) {
-                e.printStackTrace();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            //System.out.println(jsonresult);
-            return jsonresult;
-        }
-
-        @Override
-        public void onPreExecute(){super.onPreExecute();}
-
-        @Override
-        public void onPostExecute(String result){
-            super.onPostExecute(result);
-            System.out.println("Resulted Value: " + result);
-            boolean jsonResult = returnParsedJsonObject(result);
-            if(jsonResult){
-                Toast.makeText(getActivity(),"Investation Success",Toast.LENGTH_LONG);
-            }
-        }
-
-        private StringBuilder inputStreamToString(InputStream is) {
-            String rLine;
-            StringBuilder answer = new StringBuilder();
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-            try {
-                while ((rLine = br.readLine()) != null) {
-                    answer.append(rLine);
-                }
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            return answer;
-        }
-    }
-
-    private boolean returnParsedJsonObject(String result) {
-
-        JSONObject resultObject;
-        boolean returnedResult = false;
-        try {
-            resultObject = new JSONObject(result);
-            returnedResult = resultObject.getBoolean("success");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return returnedResult;
-    }
+//    public class AsyncData extends AsyncTask<String, Void, String>{
+//
+//        @Override
+//        protected String doInBackground(String... params){
+//            HttpParams httpParams = new BasicHttpParams();
+//            HttpConnectionParams.setConnectionTimeout(httpParams,5000);
+//            HttpConnectionParams.setSoTimeout(httpParams,5000);
+//
+//            HttpClient httpClient = new DefaultHttpClient(httpParams);
+//            HttpPost httpPost = new HttpPost(params[0]);
+//            String jsonresult = "";
+//
+//            try{
+//
+//                List<NameValuePair> nameValuePairs = new ArrayList<>(2);
+//                //List<NameValuePair> headers = new ArrayList<>(2);
+//                nameValuePairs.add(new BasicNameValuePair("message",params[2]));
+//                nameValuePairs.add(new BasicNameValuePair("msisdn",params[3]));
+//                //headers.add(new BasicNameValuePair("Content-Type","application/json"));
+//                //headers.add(new BasicNameValuePair("Authorization","Bearer "+params[1]));
+//                httpPost.setHeader("Content-Type","application/json");
+//                httpPost.setHeader("Authorization","Bearer "+params[1]);
+//                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+//
+//                HttpResponse httpResponse = httpClient.execute(httpPost);
+//                jsonresult = inputStreamToString(httpResponse.getEntity().getContent()).toString();
+//
+//            }
+//            catch (ClientProtocolException e) {
+//                e.printStackTrace();
+//            }
+//            catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            //System.out.println(jsonresult);
+//            return jsonresult;
+//        }
+//
+//        @Override
+//        public void onPreExecute(){super.onPreExecute();}
+//
+//        @Override
+//        public void onPostExecute(String result){
+//            super.onPostExecute(result);
+//            System.out.println("Resulted Value: " + result);
+//            boolean jsonResult = returnParsedJsonObject(result);
+//            if(jsonResult){
+//                Toast.makeText(getActivity(),"Investation Success",Toast.LENGTH_LONG);
+//            }
+//        }
+//
+//        private StringBuilder inputStreamToString(InputStream is) {
+//            String rLine;
+//            StringBuilder answer = new StringBuilder();
+//            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+//            try {
+//                while ((rLine = br.readLine()) != null) {
+//                    answer.append(rLine);
+//                }
+//            } catch (IOException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//            return answer;
+//        }
+//    }
+//
+//    private boolean returnParsedJsonObject(String result) {
+//
+//        JSONObject resultObject;
+//        boolean returnedResult = false;
+//        try {
+//            resultObject = new JSONObject(result);
+//            returnedResult = resultObject.getBoolean("success");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        return returnedResult;
+//    }
 
 }

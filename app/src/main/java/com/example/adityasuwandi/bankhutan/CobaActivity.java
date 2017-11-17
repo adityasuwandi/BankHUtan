@@ -45,7 +45,7 @@ public class CobaActivity extends AppCompatActivity {
 
         MenuItem selectedMenu;
         if (savedInstanceState != null) {
-            selectedItem = savedInstanceState.getInt(SELECTED_ITEM, 1);
+            selectedItem = savedInstanceState.getInt(SELECTED_ITEM, 5);
             selectedMenu = navigationView.getMenu().findItem(selectedItem);
         } else {
             selectedMenu = navigationView.getMenu().getItem(1);
