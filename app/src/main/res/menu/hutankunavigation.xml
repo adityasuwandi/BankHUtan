@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_myTree"
+        android:title="My Tree" />
+
+    <item
+        android:id="@+id/navigation_inProgress"
+        android:title="In Progress" />
+
+    <item
+        android:id="@+id/navigation_harvest"
+        android:title="Harvest" />
+
+</menu>
