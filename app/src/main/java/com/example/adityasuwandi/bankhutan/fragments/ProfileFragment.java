@@ -12,13 +12,13 @@ import com.example.adityasuwandi.bankhutan.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends android.app.Fragment {
 
 
-    public static Fragment newInstance() {
-        Fragment frag = new ProfileFragment();
-        return frag;
-    }
+//    public static Fragment newInstance() {
+//        Fragment frag = new ProfileFragment();
+//        return frag;
+//    }
 
     public ProfileFragment() {
         // Required empty public constructor

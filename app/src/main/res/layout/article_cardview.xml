@@ -7,6 +7,7 @@
     card_view:cardUseCompatPadding="true">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +16,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/img_article_list"
+            android:id="@+id/catalogimg"
             app:srcCompat="@drawable/logo"
             />
         <LinearLayout
@@ -25,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_item_title"
+                android:id="@+id/catalogtitle"
                 android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
@@ -34,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_item_article"
+                android:id="@+id/catalogtext"
                 android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"

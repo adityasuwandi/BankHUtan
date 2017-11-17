@@ -67,11 +67,11 @@ public class ArticleFragmentAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_ITEM) {
-            View view = LayoutInflater.from(activity).inflate(R.layout.article_cardview, parent, false);
-            return new UserViewHolder(view);
+            //View view = LayoutInflater.from(activity).inflate(R.layout.article_cardview, parent, false);
+            //return new UserViewHolder(view);
         } else if (viewType == VIEW_TYPE_LOADING) {
-            View view = LayoutInflater.from(activity).inflate(R.layout.loadmore, parent, false);
-            return new LoadingViewHolder(view);
+           // View view = LayoutInflater.from(activity).inflate(R.layout.loadmore, parent, false);
+            //return new LoadingViewHolder(view);
         }
         return null;
     }
@@ -113,8 +113,8 @@ public class ArticleFragmentAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public UserViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.txt_item_title);
-            article = (TextView) view.findViewById(R.id.txt_item_article);
+            title = (TextView) view.findViewById(R.id.catalogtitle);
+            article = (TextView) view.findViewById(R.id.catalogtext);
         }
     }
 

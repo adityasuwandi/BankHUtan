@@ -65,23 +65,23 @@ public class CobaActivity extends AppCompatActivity {
     }
 
     public void selectFragment(MenuItem item) {
-        Fragment frag = null;
+        android.app.Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                frag = HomeFragment.newInstance();
+                frag = new HomeFragment();
                 break;
             case R.id.navigation_artikel:
-                frag = ArticleFragment.newInstance();
+                frag = new ArticleFragment();
                 break;
             case R.id.navigation_katalog:
                 frag = new CatalogFragment();
                 break;
             case R.id.navigation_myforest:
-                frag = MyForestFragment.newInstance();
+                frag = new MyForestFragment();
                 break;
             case R.id.navigation_profil:
-                frag = ProfileFragment.newInstance();
+                frag = new ProfileFragment();
                 break;
         }
         // update selected item
@@ -93,7 +93,7 @@ public class CobaActivity extends AppCompatActivity {
             menuItem.setChecked(menuItem.getItemId() == item.getItemId());
         }
         if (frag != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            android.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.container, frag);
             ft.commit();
         }

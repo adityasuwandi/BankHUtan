@@ -12,11 +12,11 @@ import com.example.adityasuwandi.bankhutan.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
-    public static Fragment newInstance() {
-        Fragment frag = new HomeFragment();
-        return frag;
-    }
+public class HomeFragment extends android.app.Fragment {
+//    public static Fragment newInstance() {
+//        Fragment frag = new HomeFragment();
+//        return frag;
+//    }
 
 
     public HomeFragment() {
