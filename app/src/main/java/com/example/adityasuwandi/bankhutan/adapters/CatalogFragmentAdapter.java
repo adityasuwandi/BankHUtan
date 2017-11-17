@@ -64,8 +64,8 @@ public class CatalogFragmentAdapter extends RecyclerView.Adapter{
             mCatalogTitle.setText(DataKatalog.title[position]);
             mCatalogText.setText(DataKatalog.text[position]);
             mImageView.setImageResource(DataKatalog.picturePath[position]);
-        }
 
+        }
         public void onClick(View view){
 
         }

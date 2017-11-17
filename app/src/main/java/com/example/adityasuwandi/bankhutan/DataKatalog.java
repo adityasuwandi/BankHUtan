@@ -1,10 +1,12 @@
 package com.example.adityasuwandi.bankhutan;
 
+import java.io.Serializable;
 /**
  * Created by AdityaLaksana on 11/17/2017.
  */
 
 public class DataKatalog {
+
     public static String[] title = new String[]{
             "Pandan",
             "TekTok",
@@ -26,4 +28,5 @@ public class DataKatalog {
             3500,
             600
     };
+
 }
