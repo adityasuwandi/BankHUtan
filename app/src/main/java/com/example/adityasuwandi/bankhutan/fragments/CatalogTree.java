@@ -6,21 +6,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.adityasuwandi.bankhutan.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewTreeFragment extends Fragment {
+public class CatalogTree extends android.app.Fragment {
+    private TextView mTreeName ;
+    private TextView mTreeDesc ;
+    public  CatalogTree()  {
 
-    public static Fragment newInstance() {
-        Fragment frag = new NewTreeFragment();
-        return frag;
-    }
 
-    public NewTreeFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -28,7 +27,7 @@ public class NewTreeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_tree, container, false);
+        return inflater.inflate(R.layout.catalog_tree, container, false);
     }
 
 }

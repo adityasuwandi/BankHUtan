@@ -20,4 +20,10 @@ public class DataKatalog {
             R.drawable.sample2,
             R.drawable.sample3
     };
+
+    public static int[] price = new int[] {
+            30,
+            3500,
+            600
+    };
 }
